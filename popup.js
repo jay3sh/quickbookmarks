@@ -137,11 +137,19 @@ document.addEventListener('DOMContentLoaded', function () {
   if(starBookmarks) {
     starBookmarks = JSON.parse(starBookmarks);
     starBookmarks.forEach(function (entry) {
-      $('#starbookmarks').append(
-        '<span><a href="'+entry.url+'">'+entry.title+'</a></span><br/>')
+
+      var anchor = $('<a href="'+entry.url+'">'+entry.title+'</a>');
+      $('#starbookmarks').append($('<span></span>').append(anchor)).append('<br/><br/>');
+      anchor.click(function() {
+        chrome.tabs.create({url: anchor.attr('href')});
+      });
     });
   } else {
     starBookmarks = [];
+    dumpBookmarks();
   }
-  //dumpBookmarks();
+
+  $('#addmore').click(function () {
+    dumpBookmarks();
+  });
 });

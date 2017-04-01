@@ -2,10 +2,27 @@
 <head>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script src="popup.js"></script>
+  <style>
+    #starbookmarks a {
+      color : #0100ff;
+      text-decoration: none;
+      font-size:16px;
+    }
+    #control > a {
+      font-weight:bold;
+      color : #ff0112;
+      text-decoration: none;
+    }
+    #control > a:hover {
+      text-shadow: 2px;
+    }
+  </style>
 </head>
-<body style="width: 400px">
+<body style="width: 250px">
   <div id="console"></div>
   <div id="starbookmarks"></div>
   <div id="bookmarks"></div>
+  <br/>
+  <div id="control"><a id="addmore" href="#">Add more</a></div>
 </body>
 </html>
